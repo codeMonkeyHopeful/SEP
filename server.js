@@ -15,13 +15,13 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get("/campuses", (req, res, next) => {
+app.get("/api/campuses", (req, res, next) => {
   Campus.findAll({}).then(campuses => {
     res.send(campuses);
   });
 });
 
-app.get("/students", (req, res, next) => {
+app.get("/api/students", (req, res, next) => {
   Student.findAll({}).then(students => {
     res.send(students);
   });
@@ -31,17 +31,50 @@ db.sync({ force: true })
   .then(() => {
     Promise.all([
       Campus.create({
-        name: "test",
-        imageURL: "test",
-        address: "test",
-        description: "test"
+        name: "OSU",
+        imageURL: "https://picsum.photos/200",
+        address: "100 High Street",
+        description: "The greatest university in the world"
+      }),
+      Campus.create({
+        name: "Arizona State",
+        imageURL: "https://picsum.photos/200",
+        address: "1 FakeAddress Lane",
+        description: "Party hard"
+      }),
+      Campus.create({
+        name: "LSU",
+        imageURL: "https://picsum.photos/200",
+        address: "The south",
+        description: "Crawdads are yummy"
       }),
       Student.create({
-        firstName: "bruce",
-        lastName: "wayne",
+        firstName: "Bruce",
+        lastName: "Wayne",
         email: "bruce@gmail.com",
-        imageURL: "null.jpg",
+        imageURL: "https://picsum.photos/200",
         gpa: 2.3
+      }),
+      Student.create({
+        firstName: "Bruce",
+        lastName: "Almighty",
+        email: "bruce2@gmail.com",
+        imageURL: "https://picsum.photos/200",
+        gpa: 3.4
+      }),
+      Student.create({
+        firstName: "Marky",
+        lastName: "Mark",
+        email: "MrAwesome@gmail.com",
+        imageURL: "https://picsum.photos/200",
+        gpa: 1.2
+      }),
+      Student.create({
+        firstName: "Papa",
+        lastName: "Smurf",
+        email: "PapaSmurf@gmail.com",
+        imageURL: "https://picsum.photos/200",
+        gpa: 3.6
       })
     ]);
   })

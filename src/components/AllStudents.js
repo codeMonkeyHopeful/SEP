@@ -1,9 +1,31 @@
 import React, { Component } from "react";
+import { getStudents } from "../Reducer";
+import { connect } from "react-redux";
+import { useEffect } from "react";
 
-export class AllStudents extends Component {
-  render() {
-    return <div />;
-  }
-}
+const AllStudents = props => {
+  useEffect(() => {
+    props.getStudentsReact();
+  }, []);
+  return (
+    <div>
+      {props.students.map(student => {
+        return <div>{student.firstName}</div>;
+      })}
+    </div>
+  );
+};
 
-export default AllStudents;
+const mapStateToProps = state => {
+  return { students: state.students };
+};
+
+const mapDispatchToProps = dispatch => ({
+  getStudentsReact: () => dispatch(getStudents())
+});
+const Students = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AllStudents);
+
+export default Students;

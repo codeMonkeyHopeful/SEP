@@ -1,14 +1,25 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { getCampuses } from "../Reducer";
 import { connect } from "react-redux";
 
-export const AllCampuses = state => {
-  getCampuses();
-  console.log(state.campuses);
+export const AllCampuses = props => {
+  useEffect(() => {
+    props.getCampusesReact();
+  }, []);
   return (
     <div>
-      {state.campuses.map(campus => {
-        return <div>{campus}</div>;
+      {props.campuses.map(campus => {
+        return (
+          <div>
+            <div>{campus.name}</div>
+            <img
+              src={campus.imageURL}
+              alt="there should be an image here"
+              height="200"
+              width="200"
+            />
+          </div>
+        );
       })}
     </div>
   );
@@ -19,8 +30,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getCampuses: () => dispatch(getCampuses())
+  getCampusesReact: () => dispatch(getCampuses())
 });
-const Campuses = connect(mapStateToProps)(AllCampuses);
+const Campuses = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AllCampuses);
 
 export default Campuses;
