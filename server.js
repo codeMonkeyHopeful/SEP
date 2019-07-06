@@ -2,7 +2,6 @@ const chalk = require("chalk");
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
-const Sequelize = require("sequelize");
 const db = require("./server/connect");
 
 const { Campus, Student } = require("./server/db");

@@ -1,10 +1,26 @@
 import React, { Component } from "react";
-import rootReducer from "../Reducer";
+import { getCampuses } from "../Reducer";
+import { connect } from "react-redux";
 
-export class AllCampuses extends Component {
-  render() {
-    return <div>{rootReducer.name}</div>;
-  }
-}
+export const AllCampuses = state => {
+  getCampuses();
+  console.log(state.campuses);
+  return (
+    <div>
+      {state.campuses.map(campus => {
+        return <div>{campus}</div>;
+      })}
+    </div>
+  );
+};
 
-export default AllCampuses;
+const mapStateToProps = state => {
+  return { campuses: state.campuses };
+};
+
+const mapDispatchToProps = dispatch => ({
+  getCampuses: () => dispatch(getCampuses())
+});
+const Campuses = connect(mapStateToProps)(AllCampuses);
+
+export default Campuses;

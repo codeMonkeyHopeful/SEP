@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import Navbar from "./Navbar";
-import AllCampuses from "./AllCampuses";
-import Redux from "redux";
+import Main from "./Main";
+import store from "../Reducer";
+import { Provider } from "react-redux";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <AllCampuses />
+        <Provider store={store}>
+          <Main />
+        </Provider>
       </div>
     );
   }
