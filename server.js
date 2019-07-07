@@ -21,10 +21,40 @@ app.get("/api/campuses", (req, res, next) => {
   });
 });
 
+app.get("/api/campuses/:id", (req, res, next) => {
+  Campus.findAll({
+    where: { id: req.params.id },
+    include: {
+      model: Student
+    }
+  })
+    .then(campus => {
+      res.send(campus);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+});
+
 app.get("/api/students", (req, res, next) => {
   Student.findAll({}).then(students => {
     res.send(students);
   });
+});
+
+app.get("/api/students/:id", (req, res, next) => {
+  Student.findAll({
+    where: { id: req.params.id },
+    include: {
+      model: Campus
+    }
+  })
+    .then(student => {
+      res.send(student);
+    })
+    .catch(e => {
+      console.log(e);
+    });
 });
 
 db.sync({ force: true })
@@ -53,28 +83,32 @@ db.sync({ force: true })
         lastName: "Wayne",
         email: "bruce@gmail.com",
         imageURL: "https://picsum.photos/200",
-        gpa: 2.3
+        gpa: 2.3,
+        campusId: 1
       }),
       Student.create({
         firstName: "Bruce",
         lastName: "Almighty",
         email: "bruce2@gmail.com",
         imageURL: "https://picsum.photos/200",
-        gpa: 3.4
+        gpa: 3.4,
+        campusId: 2
       }),
       Student.create({
         firstName: "Marky",
         lastName: "Mark",
         email: "MrAwesome@gmail.com",
         imageURL: "https://picsum.photos/200",
-        gpa: 1.2
+        gpa: 1.2,
+        campusId: 1
       }),
       Student.create({
         firstName: "Papa",
         lastName: "Smurf",
         email: "PapaSmurf@gmail.com",
         imageURL: "https://picsum.photos/200",
-        gpa: 3.6
+        gpa: 3.6,
+        campusId: 3
       })
     ]);
   })

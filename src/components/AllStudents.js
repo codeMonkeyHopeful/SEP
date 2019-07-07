@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { getStudents } from "../Reducer";
 import { connect } from "react-redux";
-import { useEffect } from "react";
 
 const AllStudents = props => {
   useEffect(() => {
@@ -10,7 +9,11 @@ const AllStudents = props => {
   return (
     <div>
       {props.students.map(student => {
-        return <div>{student.firstName}</div>;
+        return (
+          <div key={student.id}>{`${student.firstName} ${
+            student.lastName
+          }`}</div>
+        );
       })}
     </div>
   );

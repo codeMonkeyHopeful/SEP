@@ -11,7 +11,7 @@ export const AllCampuses = props => {
       {props.campuses.map(campus => {
         return (
           <div>
-            <div>{campus.name}</div>
+            <div key={campus.id}>{campus.name}</div>
             <img
               src={campus.imageURL}
               alt="there should be an image here"
