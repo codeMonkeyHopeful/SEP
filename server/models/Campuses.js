@@ -1,24 +1,24 @@
-const Sequelize = require('sequelize');
-const db = require('../connect');
+const Sequelize = require("sequelize");
+const db = require("../connect");
 
-const Campus = db.define('campus', {
+const Campus = db.define("campus", {
   name: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   imageURL: {
     type: Sequelize.STRING,
-    defaulValue: 'image.jpg', //come back to this to make a real image
+    defaulValue: "https://picsum.photos/200" //come back to this to make a real image
   },
   address: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   description: {
-    type: Sequelize.TEXT, //double check this
-  },
+    type: Sequelize.TEXT //double check this
+  }
 });
 
 module.exports = Campus;

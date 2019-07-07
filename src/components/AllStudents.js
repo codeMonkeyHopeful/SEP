@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from "react";
 import { getStudents } from "../Reducer";
 import { connect } from "react-redux";
+import { HashRouter, Route, Link, Switch } from "react-router-dom";
 
 const AllStudents = props => {
   useEffect(() => {
@@ -8,13 +9,18 @@ const AllStudents = props => {
   }, []);
   return (
     <div>
-      {props.students.map(student => {
-        return (
-          <div key={student.id}>{`${student.firstName} ${
-            student.lastName
-          }`}</div>
-        );
-      })}
+      <h3>All Students</h3>
+      <ul>
+        {props.students.map(student => {
+          return (
+            <li>
+              <Link to={`/students/${student.id}`}>
+                <div>{`${student.firstName} ${student.lastName}`}</div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

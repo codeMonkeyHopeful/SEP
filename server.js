@@ -22,11 +22,8 @@ app.get("/api/campuses", (req, res, next) => {
 });
 
 app.get("/api/campuses/:id", (req, res, next) => {
-  Campus.findAll({
-    where: { id: req.params.id },
-    include: {
-      model: Student
-    }
+  Campus.findByPk(req.params.id, {
+    include: [Student]
   })
     .then(campus => {
       res.send(campus);
@@ -43,8 +40,7 @@ app.get("/api/students", (req, res, next) => {
 });
 
 app.get("/api/students/:id", (req, res, next) => {
-  Student.findAll({
-    where: { id: req.params.id },
+  Student.findByPk(req.params.id, {
     include: {
       model: Campus
     }
