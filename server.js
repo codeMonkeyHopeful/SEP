@@ -108,6 +108,9 @@ db.sync({ force: true })
       })
     ]);
   })
+  .catch(e => {
+    console.log(e);
+  })
   .then(() => {
     app.listen(PORT, () => {
       console.log(
