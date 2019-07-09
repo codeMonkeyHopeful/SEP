@@ -74,7 +74,9 @@ app.post("/api/students", (req, res, next) => {
 });
 
 app.delete("/api/students", function(req, res) {
-  res.send("Got a DELETE request at /user"); // place holder
+  Student.destroy({ where: { id: req.body.id } })
+    .then(res.end("Successful Delete"))
+    .catch(e => console.log(e));
 });
 
 app.get("/api/students/:id", (req, res, next) => {

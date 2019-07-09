@@ -2,6 +2,7 @@ import React, { Component, useEffect } from "react";
 import { getStudents } from "../Reducer";
 import { connect } from "react-redux";
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import axios from "axios";
 
 const AllStudents = props => {
   useEffect(() => {
@@ -17,6 +18,22 @@ const AllStudents = props => {
               <Link to={`/students/${student.id}`}>
                 <div>{`${student.firstName} ${student.lastName}`}</div>
               </Link>
+              <button
+                type="submit"
+                onClick={() => {
+                  axios
+                    .delete("/api/students", { data: { id: student.id } })
+                    .then(response => {
+                      console.log(response);
+                    })
+                    .then(props.getStudentsReact())
+                    .catch(e => {
+                      console.log(e);
+                    });
+                }}
+              >
+                &times;
+              </button>
             </li>
           );
         })}

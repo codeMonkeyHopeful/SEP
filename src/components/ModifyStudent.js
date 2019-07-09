@@ -33,7 +33,7 @@ class ModifyStudent extends Component {
         </div>
         <div>
           <label>Campus (optoinal, default will be random image)</label>
-          <input type="number" name="campus" />
+          <input type="number" name="campus" min="1" />
         </div>
         <button type="submit">Create Student</button>
       </form>
