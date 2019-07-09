@@ -11,7 +11,7 @@ export const AllCampuses = props => {
     <div>
       {props.campuses.map(campus => {
         return (
-          <div>
+          <div key={campus.id}>
             <Link to={`/campuses/${campus.id}`}>
               <div>{campus.name}</div>
             </Link>

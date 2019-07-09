@@ -21,8 +21,8 @@ export class Navbar extends Component {
         >
           <Link to="/campuses">Show All Campuses</Link>
           <Link to="/students">Show All Students</Link>
-          <Link to="/modifycampus">Modify A Campus</Link>
-          <Link to="/modifystudent">Modify A Student</Link>
+          <Link to="/modifycampus">Add A Campus</Link>
+          <Link to="/modifystudent">Add A Student</Link>
         </div>
         <div id="nav">
           <Switch>

@@ -13,7 +13,7 @@ const AllStudents = props => {
       <ul>
         {props.students.map(student => {
           return (
-            <li>
+            <li key={student.id}>
               <Link to={`/students/${student.id}`}>
                 <div>{`${student.firstName} ${student.lastName}`}</div>
               </Link>

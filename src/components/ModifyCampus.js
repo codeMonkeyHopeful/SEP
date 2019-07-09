@@ -18,24 +18,30 @@ class ModifyCampus extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Name</label>
-        <input type="text" name="name" />
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" />
+        </div>
         <label>Address</label>
         <input type="text" name="address" />
-        <button type="submit">Create Campus</button>
+        <div>
+          <label>ImageURL (optional)</label>
+          <input type="text" name="image" />
+        </div>
+        <div>
+          <button type="submit">Create Campus</button>
+        </div>
       </form>
     );
   }
   handleSubmit(event) {
     event.preventDefault();
-    const name = event.target.name.value;
-    const address = event.target.address.value;
+    const { name, address, image } = event.target;
     axios
-      .post("/api/campuses", (req, res, next) => {
-        req.send({
-          name: name,
-          address: address
-        });
+      .post("/api/campuses", {
+        name: name.value,
+        address: address.value,
+        imageURL: image.value
       })
       .then(function(response) {
         console.log(response);
@@ -52,7 +58,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createCampusReact: campus => dispatch(getSingleCampus(id)) //update
+  createCampusReact: campus => dispatch(getSingleCampus(campus)) //update
 });
 export default connect(
   mapStateToProps,
