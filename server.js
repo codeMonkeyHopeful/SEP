@@ -38,6 +38,10 @@ app.post("/api/campuses", (req, res, next) => {
     });
 });
 
+app.delete("/api/campuses", (req, res, next) => {
+  Campus.destroy({ where: { id: req.body.id } }).then(res.end("Success"));
+});
+
 app.get("/api/campuses/:id", (req, res, next) => {
   Campus.findByPk(req.params.id, {
     include: [Student]
@@ -67,6 +71,10 @@ app.post("/api/students", (req, res, next) => {
     .catch(e => {
       console.log(e);
     });
+});
+
+app.delete("/api/students", function(req, res) {
+  res.send("Got a DELETE request at /user"); // place holder
 });
 
 app.get("/api/students/:id", (req, res, next) => {
