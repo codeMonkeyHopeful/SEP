@@ -1,9 +1,11 @@
 import React, { Component, useEffect } from "react";
-import { getSingleCampus } from "../Reducer";
+import { getCampuses } from "../Reducer";
 import { connect } from "react-redux";
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import axios from "axios";
+import thunk from "redux-thunk";
 
-export class ModifyCampus extends Component {
+class ModifyCampus extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,21 +22,28 @@ export class ModifyCampus extends Component {
         <input type="text" name="name" />
         <label>Address</label>
         <input type="text" name="address" />
-        <label>Description</label>
-        <input type="text" name="description" />
         <button type="submit">Create Campus</button>
       </form>
     );
   }
   handleSubmit(event) {
     event.preventDefault();
-    const newCampus = {
-      name: event.target.name.value,
-      address: event.target.address.value,
-      description: event.target.description
-    };
-    console.log(newCampus);
-    //createCampusReact(newCampus)
+    const name = event.target.name.value;
+    const address = event.target.address.value;
+    axios
+      .post("/api/campuses", (req, res, next) => {
+        req.send({
+          name: name,
+          address: address
+        });
+      })
+      .then(function(response) {
+        console.log(response);
+      })
+      .then()
+      .catch(e => {
+        console.log(e);
+      });
   }
 }
 

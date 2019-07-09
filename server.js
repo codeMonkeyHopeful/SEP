@@ -21,6 +21,17 @@ app.get("/api/campuses", (req, res, next) => {
   });
 });
 
+app.post("/api/campuses", (req, res, next) => {
+  console.log(req.query);
+  // Campus.create({
+  //   name: "test",
+  //   imageURL: "https://picsum.photos/200",
+  //   address: "100 High Street",
+  //   description: "The greatest university in the world"
+  // });
+  res.end("Success");
+});
+
 app.get("/api/campuses/:id", (req, res, next) => {
   Campus.findByPk(req.params.id, {
     include: [Student]
@@ -37,6 +48,11 @@ app.get("/api/students", (req, res, next) => {
   Student.findAll({}).then(students => {
     res.send(students);
   });
+});
+
+app.post("/api/students", (req, res, next) => {
+  //Student.create()
+  res.end("Success");
 });
 
 app.get("/api/students/:id", (req, res, next) => {
@@ -104,9 +120,9 @@ db.sync({ force: true })
         email: "PapaSmurf@gmail.com",
         imageURL: "https://picsum.photos/200",
         gpa: 3.6,
-        campusId: 3
+        campusId: 1
       })
-    ]);
+    ]).catch(e => console.log(e));
   })
   .catch(e => {
     console.log(e);
