@@ -15,25 +15,32 @@ const AllStudents = props => {
         {props.students.map(student => {
           return (
             <li key={student.id}>
-              <Link to={`/students/${student.id}`}>
-                <div>{`${student.firstName} ${student.lastName}`}</div>
-              </Link>
-              <button
-                type="submit"
-                onClick={() => {
-                  axios
-                    .delete("/api/students", { data: { id: student.id } })
-                    .then(response => {
-                      console.log(response);
-                    })
-                    .then(props.getStudentsReact())
-                    .catch(e => {
-                      console.log(e);
-                    });
+              <div
+                style={{
+                  display: "inline-flex",
+                  flexDirection: "row"
                 }}
               >
-                &times;
-              </button>
+                <Link to={`/students/${student.id}`}>
+                  <div>{`${student.firstName} ${student.lastName}`}</div>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    axios
+                      .delete("/api/students", { data: { id: student.id } })
+                      .then(response => {
+                        console.log(response);
+                      })
+                      .then(props.getStudentsReact())
+                      .catch(e => {
+                        console.log(e);
+                      });
+                  }}
+                >
+                  &times;
+                </button>
+              </div>
             </li>
           );
         })}

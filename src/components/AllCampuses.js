@@ -3,6 +3,7 @@ import { getCampuses } from "../Reducer";
 import { connect } from "react-redux";
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
 import axios from "axios";
+import ModifyCampus from "./ModifyCampus";
 
 export const AllCampuses = props => {
   useEffect(() => {
@@ -15,13 +16,13 @@ export const AllCampuses = props => {
           <div key={campus.id}>
             <Link to={`/campuses/${campus.id}`}>
               <div>{campus.name}</div>
+              <img
+                src={campus.imageURL}
+                alt="there should be an image here"
+                height="200"
+                width="200"
+              />
             </Link>
-            <img
-              src={campus.imageURL}
-              alt="there should be an image here"
-              height="200"
-              width="200"
-            />
             <button
               type="submit"
               onClick={() =>

@@ -32,7 +32,7 @@ class ModifyStudent extends Component {
           <input type="email" name="email" required />
         </div>
         <div>
-          <label>Campus (optoinal, default will be random image)</label>
+          <label>Campus (optional)</label>
           <input type="number" name="campus" min="1" />
         </div>
         <button type="submit">Create Student</button>
@@ -55,7 +55,6 @@ class ModifyStudent extends Component {
       .then(function(response) {
         console.log(response);
       })
-      .then()
       .catch(e => {
         console.log(e);
       });

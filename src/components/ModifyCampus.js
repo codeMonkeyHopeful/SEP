@@ -15,6 +15,7 @@ class ModifyCampus extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -45,6 +46,7 @@ class ModifyCampus extends Component {
       })
       .then(function(response) {
         console.log(response);
+        return response;
       })
       .then()
       .catch(e => {
@@ -58,7 +60,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createCampusReact: campus => dispatch(getSingleCampus(campus)) //update
+  getCampusesReact: () => dispatch(getCampuses())
 });
 export default connect(
   mapStateToProps,
