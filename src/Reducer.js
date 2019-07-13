@@ -143,6 +143,7 @@ function singleStudentReducer(singleStudent = intialSingleStudent, action) {
   }
 }
 
+//root reducer aka subreducer
 const rootReducer = combineReducers({
   campuses: campusReducer,
   students: studentReducer,

@@ -3,11 +3,15 @@ const db = require("../connect");
 
 const Campus = db.define("campus", {
   name: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   imageURL: {
     type: Sequelize.STRING,
-    defaulValue: "https://picsum.photos/200" //come back to this to make a real image
+    defaulValue: "https://picsum.photos/200"
   },
   address: {
     type: Sequelize.STRING,
@@ -17,7 +21,10 @@ const Campus = db.define("campus", {
     }
   },
   description: {
-    type: Sequelize.TEXT //double check this
+    type: Sequelize.TEXT
+  },
+  mapLocation: {
+    type: Sequelize.TEXT
   }
 });
 

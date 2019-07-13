@@ -6,6 +6,7 @@ import SingleCampus from "./SingleCampus";
 import SingleStudent from "./SingleStudent";
 import ModifyCampus from "./ModifyCampus";
 import ModifyStudent from "./ModifyStudent";
+import MissingPage from "./MissingPage";
 
 export class Navbar extends Component {
   render() {
@@ -32,6 +33,7 @@ export class Navbar extends Component {
             <Route exact path="/modifystudent" component={ModifyStudent} />
             <Route path="/campuses/:id" component={SingleCampus} />
             <Route path="/students/:id" component={SingleStudent} />
+            <Route component={MissingPage} />
             <Redirect to="/campuses" />
           </Switch>
         </div>

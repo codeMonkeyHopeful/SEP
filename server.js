@@ -101,21 +101,30 @@ db.sync({ force: true })
         imageURL:
           "https://cdn.vox-cdn.com/thumbor/j6zdpMvPpnIdKA6XbQf0sTDwcOY=/0x52:500x385/1200x800/filters:focal(0x52:500x385)/cdn.vox-cdn.com/uploads/chorus_image/image/7637953/-8440ec73343f6236.0.jpeg",
         address: "100 High Street",
-        description: "The greatest university in the world"
+        description:
+          "The Ohio State University, commonly referred to as Ohio State or OSU, is a large public research university in Columbus, Ohio. Founded in 1870 as a land-grant university and the ninth university in Ohio with the Morrill Act of 1862,[4] the university was originally known as the Ohio Agricultural and Mechanical College (Mech). The college began with a focus on training students in various agricultural and mechanical disciplines but it developed into a comprehensive university under the direction of then-Governor (later, President) Rutherford B. Hayes, and in 1878 the Ohio General Assembly passed a law changing the name to The Ohio State University.[5] It has since grown into the third-largest university campus in the United States.[6] Along with its main campus in Columbus, Ohio State also operates regional campuses in Lima, Mansfield, Marion, Newark, and Wooster.",
+        mapLocation:
+          "https://www.google.com/maps/place/The+Ohio+State+University/@40.0068404,-83.0328109,17z/data=!3m1!4b1!4m5!3m4!1s0x88388e8fdde8a7b3:0xab2cd8082156878f!8m2!3d40.0068363!4d-83.0306222"
       }),
       Campus.create({
         name: "Arizona State",
         imageURL:
           "https://ewscripps.brightspotcdn.com/dims4/default/d2e97df/2147483647/strip/true/crop/544x306+3+33/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F45%2F3a%2Fcc5033e7460aacc84d3524245f8d%2Fblack-fork-0.jpg",
         address: "1 FakeAddress Lane",
-        description: "Party hard"
+        description:
+          "Arizona State University (commonly referred to as ASU or Arizona State) is a public metropolitan research university[8] on five campuses across the Phoenix metropolitan area,[9] and four regional learning centers throughout Arizona.",
+        mapLocation:
+          "https://www.google.com/maps/place/Arizona+State+University+Downtown+Phoenix+Campus/@33.453543,-112.0753105,17z/data=!3m1!4b1!4m5!3m4!1s0x872b1218ffffffff:0xc03bc902403ff919!8m2!3d33.4535385!4d-112.0731218"
       }),
       Campus.create({
         name: "LSU",
         imageURL:
           "https://pbs.twimg.com/profile_images/382296603/lsu_logo2_400x400.jpg",
         address: "The south",
-        description: "Crawdads are yummy"
+        description:
+          "Louisiana State University (officially Louisiana State University and Agricultural and Mechanical College, commonly referred to as LSU) is a public research university in Baton Rouge, Louisiana.[8] The university was founded in 1853 in what is now known as Pineville, Louisiana, under the name Louisiana State Seminary of Learning & Military Academy. The current LSU main campus was dedicated in 1926, consists of more than 250 buildings constructed in the style of Italian Renaissance architect Andrea Palladio, and the main campus historic district occupies a 650-acre (2.6 km²) plateau on the banks of the Mississippi River.",
+        mapLocation:
+          "https://www.google.com/maps/place/Louisiana+State+University/@30.4132625,-91.182191,17z/data=!3m1!4b1!4m5!3m4!1s0x8626a723780e1ca3:0xcdb21f2e63145453!8m2!3d30.4132579!4d-91.1800023"
       }),
       Student.create({
         firstName: "Bruce",

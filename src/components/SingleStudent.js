@@ -16,10 +16,21 @@ export const SingleStudent = props => {
         height="200"
         width="200"
       />
-      <div>{`Name: ${props.student.firstName} ${props.student.lastName}`}</div>
-      <div>{`Email: ${props.student.email}`}</div>
-      <div>{`GPA: ${props.student.gpa}`}</div>
-      <h3>Campus</h3>
+      <div>
+        <b>Name: </b>
+        {`${props.student.firstName} ${props.student.lastName}`}
+      </div>
+      <div>
+        <b>Email: </b>
+        {`${props.student.email}`}
+      </div>
+      <div>
+        <b>GPA: </b>
+        {`${props.student.gpa}`}
+      </div>
+      <h3>
+        <u>Campus</u>
+      </h3>
       <div>
         <Link to={`/campuses/${props.student.campus.id}`}>
           <div>{props.student.campus.name}</div>

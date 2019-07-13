@@ -10,7 +10,9 @@ const AllStudents = props => {
   }, []);
   return (
     <div>
-      <h3>All Students</h3>
+      <h3>
+        <u>All Students</u>
+      </h3>
       <ul>
         {props.students.map(student => {
           return (
