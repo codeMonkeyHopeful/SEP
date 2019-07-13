@@ -8,6 +8,8 @@ export const SingleStudent = props => {
   useEffect(() => {
     props.getSingleStudentReact(id);
   }, []);
+  const hasCampus = props.student.campusId ? true : false;
+
   return (
     <div>
       <img
@@ -32,9 +34,13 @@ export const SingleStudent = props => {
         <u>Campus</u>
       </h3>
       <div>
-        <Link to={`/campuses/${props.student.campus.id}`}>
-          <div>{props.student.campus.name}</div>
-        </Link>
+        {hasCampus ? (
+          <Link to={`/campuses/${props.student.campus.id}`}>
+            <div>{props.student.campus.name}</div>
+          </Link>
+        ) : (
+          <h1>You are not currently attending university</h1>
+        )}
       </div>
     </div>
   );

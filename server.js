@@ -65,7 +65,7 @@ app.post("/api/students", (req, res, next) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    campusId: req.body.campusId === "" ? 1 : req.body.campusId
+    campusId: req.body.campusId === "" ? null : req.body.campusId
   })
     .then(res.end("Success"))
     .catch(e => {

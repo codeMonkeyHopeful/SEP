@@ -33,7 +33,7 @@ class ModifyStudent extends Component {
         </div>
         <div>
           <label>Campus (optional)</label>
-          <input type="number" name="campus" min="1" />
+          <input type="number" name="campus" />
         </div>
         <button type="submit">Create Student</button>
       </form>
