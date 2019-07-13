@@ -8,7 +8,7 @@ export const SingleCampus = props => {
   useEffect(() => {
     props.getSingleCampusReact(id);
   }, []);
-  const hasStudents = props.campus.students ? true : false;
+  const hasStudents = props.campus.students.length ? true : false;
   return (
     <div>
       <div>
@@ -46,7 +46,7 @@ export const SingleCampus = props => {
           );
         })
       ) : (
-        <h1>test</h1>
+        <h1>No Students Attending Univeristy</h1>
       )}
     </div>
   );

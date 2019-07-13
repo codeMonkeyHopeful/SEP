@@ -27,6 +27,7 @@ export class Navbar extends Component {
         </div>
         <div id="nav">
           <Switch>
+            <Route exact path="/" render={() => <Redirect to="/campuses" />} />
             <Route exact path="/campuses" component={AllCampuses} />
             <Route exact path="/students" component={AllStudents} />
             <Route exact path="/modifycampus" component={ModifyCampus} />
@@ -34,7 +35,6 @@ export class Navbar extends Component {
             <Route path="/campuses/:id" component={SingleCampus} />
             <Route path="/students/:id" component={SingleStudent} />
             <Route component={MissingPage} />
-            <Redirect to="/campuses" />
           </Switch>
         </div>
       </HashRouter>
