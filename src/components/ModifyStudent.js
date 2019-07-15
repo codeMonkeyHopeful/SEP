@@ -1,19 +1,10 @@
-import React, { Component, useEffect } from "react";
-import { getCampuses } from "../Reducer"; //update
-import { connect } from "react-redux";
-import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import React, { Component } from "react";
 import axios from "axios";
-import thunk from "redux-thunk";
 
-class ModifyStudent extends Component {
+export default class ModifyStudent extends Component {
   constructor() {
     super();
-    this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      campus: 0
-    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   render() {
@@ -60,15 +51,3 @@ class ModifyStudent extends Component {
       });
   }
 }
-
-const mapStateToProps = state => {
-  return { student: state.students }; //update
-};
-
-const mapDispatchToProps = dispatch => ({
-  createStudentReact: student => dispatch(getSingleCampus(id)) //update
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ModifyStudent);
