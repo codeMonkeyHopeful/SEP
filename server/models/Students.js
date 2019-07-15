@@ -11,15 +11,14 @@ const Student = db.define("student", {
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
-    allowEmpty: false,
-    validate: {}
+    validate: { notEmpty: true }
   },
   email: {
     type: Sequelize.STRING,
     allowNull: false,
-    allowEmpty: false,
     validate: {
-      isEmail: true
+      isEmail: true,
+      notEmpty: true
     }
   },
   imageURL: {
